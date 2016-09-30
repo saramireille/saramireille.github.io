@@ -1,0 +1,63 @@
+.container {
+    width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.column {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.row {
+    overflow: hidden;
+    /* Overflow: hidden will not show extra content. We are using overflow: hidden in this context so that the element with overflow applied will extend as large as it needs to encompass child elements inside that are floated (instead of collapsing), assuming that the height isn't declared. */
+}
+
+.one-whole {
+    width: 940px;
+}
+
+.three-quarters {
+    width: 700px;
+}
+
+.one-half {
+    width: 460px;
+}
+
+.two-thirds {
+    width: 620px;
+}
+
+.one-third {
+    width: 300px;
+}
+
+.one-sixth {
+    width: 140px;
+}
+
+.alpha {
+    margin-left: 0/* removes the 10px margin-left value from .column class */
+}
+
+.omega {
+    margin-right: 0/* removes the 10px margin-right value from .column class */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    /* This resizes images according to the width of their container element. The height stays proportional to the width. This is how we resize images for a web page that is responsive. */
+}
