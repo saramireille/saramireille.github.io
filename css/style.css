@@ -61,3 +61,135 @@ ul {
     height: auto;
     /* This resizes images according to the width of their container element. The height stays proportional to the width. This is how we resize images for a web page that is responsive. */
 }
+
+
+/* BOX SIZING */
+
+html {
+    -webkit-box-sizing: border-box;
+    /* safari */
+    -moz-box-sizing: border-box;
+    /* firefox */
+    box-sizing: border-box;
+}
+
+
+/* asterisk means everything--any element, and anything before or after any element. all the elements before and after an element. best practice to include both this and html*/
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    /* safari */
+    -moz-box-sizing: border-box;
+    /* firefox */
+    box-sizing: border-box;
+}
+
+
+/*HEADER ELEMENTS */
+
+.brand {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.nav {
+    padding-top: 60px;
+}
+
+.pull-right {
+    float: right;
+}
+
+
+/* FOOTER */
+
+.social {
+    text-align: center;
+}
+
+
+/* MAIN CONTENT CSS */
+
+.page-header p {
+    padding-left: 15px;
+}
+
+
+/* HOME PAGE CSS */
+
+.page-header.home {
+    margin-bottom: 0;
+}
+
+.message {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.main-content-top h1 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.main-content-bottom {
+    padding-bottom: 75px;
+}
+
+.blog-tease {
+    height: 210px;
+}
+
+
+/* ABOUT PAGE */
+
+.team h1 {
+    margin-bottom: 40px;
+}
+
+.team-member {
+    margin-bottom: 20px;
+}
+
+
+/* PORTFOLIO PAGE */
+
+.portfolio-item {
+    margin-bottom: 10px;
+}
+
+.portfolio-title {
+    display: none;
+    /* hide portfolio image text - this is to make the text hidden so that it can come up on hover */
+}
+
+
+/* BLOG PAGE */
+
+.info li {
+    display: inline-block;
+}
+
+.sidebar {
+    padding: 10px;
+}
+
+.recent-entries img {
+    float: left;
+    padding-right: 10px;
+}
+
+.photos img {
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* CONTACT PAGE */
+
+.table,
+.form p,
+.map h2 {
+    margin-left: 15px;
+}
