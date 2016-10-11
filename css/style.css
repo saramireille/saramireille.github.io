@@ -1,6 +1,76 @@
+/* COLORS */
+
 body {
-    font-family: sans-serif;
+    color: #999;
+    background-color: #edecea;
+    /* light gray */
 }
+
+h1,
+h2,
+h3,
+h4,
+aside a,
+aside p,
+.team-member a {
+    color: #373737;
+    /* charcoal gray */
+}
+
+a {
+    color: #fff;
+    /* white */
+}
+
+.tile {
+    background-color: #5adae2;
+    /* turquoise */
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.header {
+    background-color: #373737;
+}
+
+.main {
+    background-color: #edecea;
+}
+
+.footer {
+    background-color: #373737;
+}
+
+.footer h4 {
+    color: #fff;
+}
+
+.footer p {
+    color: #999;
+}
+
+.footer-bottom {
+    background-color: #212020;
+    color: #fff;
+}
+
+.footer-bottom p {
+    color: #999;
+}
+
+.page-header {
+    background-color: #5adae2;
+    /* turquoise */
+    color: white;
+}
+
+.home h1 {
+    color: #fff
+}
+
+
+/* GRID RULES */
 
 .container {
     width: 960px;
@@ -25,6 +95,10 @@ body {
 
 .three-quarters {
     width: 700px;
+}
+
+.one-quarter {
+    width: 220px;
 }
 
 .one-half {
@@ -64,6 +138,10 @@ ul {
     max-width: 100%;
     height: auto;
     /* This resizes images according to the width of their container element. The height stays proportional to the width. This is how we resize images for a web page that is responsive. */
+}
+
+.img-float-left {
+    float: left;
 }
 
 
@@ -116,6 +194,11 @@ html {
 
 /* MAIN CONTENT CSS */
 
+.page-header {
+    padding-top: 30px;
+    margin-bottom: 50px;
+}
+
 .page-header p {
     padding-left: 15px;
 }
@@ -128,8 +211,14 @@ html {
 }
 
 .message {
+    background-color: #4cd2da;
+    /* darker turquoise */
     padding-top: 60px;
     padding-bottom: 60px;
+}
+
+.message h3 {
+    color: #fff;
 }
 
 .main-content-top h1 {
@@ -143,6 +232,11 @@ html {
 
 .blog-tease {
     height: 210px;
+    color: #fff;
+}
+
+.blog-tease h2 {
+    color: #fff;
 }
 
 
@@ -196,4 +290,40 @@ html {
 .form p,
 .map h2 {
     margin-left: 15px;
+}
+
+
+/* CONTENT BOXES */
+
+.contentbox {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 70px;
+}
+
+.contentbox li {
+    color: #373737;
+}
+
+.contentbox-beige {
+    background-color: #f9f8f8;
+    padding: 10px;
+    margin-bottom: 70px;
+}
+
+.contentbox-turquoise {
+    background-color: #5adae2;
+    padding: 10px;
+    margin-bottom: 70px;
+}
+
+.contentbox>img {
+    /* ">" means directly after, not just anything inside */
+    float: left;
+    margin-right: 15px;
+}
+
+.contentbox-beige>img float: left;
+margin-right: 15px;
+
 }
