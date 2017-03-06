@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sara's CNIT 133 Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://fog.ccsf.edu/~srubin/jQvalidate.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script>
+        $(document).ready(function () {
+            $("#itemssold").validate({
+                // Rules for each input item
+                rules: {
+                    item1: {
+                        required: true
+                        , number: true
+                        , min: 0
+                        , max: 1000
+                    }
+                    , item2: {
+                        required: true
+                        , number: true
+                        , min: 0
+                        , max: 1000
+                    }
+                    , item3: {
+                        required: true
+                        , number: true
+                        , min: 0
+                        , max: 1000
+                    }
+                    , item4: {
+                        required: true
+                        , number: true
+                        , min: 0
+                        , max: 1000
+                    }
+                }
+            });
+        });
+        $(function () {
+            $(document).tooltip();
+        });
+
+        function paycalculator() {
+            var myItem1, myItem2, myItem3, myItem4, myAmount1, myAmount2, myAmount3, myAmount4, myTotal1, myTotal2, myTotal3, myTotal4, myTotalSold, myTotalEarned, myTotal1Rounded, myTotal2Rounded, myTotal3Rounded, myTotal4Rounded, myTotalSoldRounded, myTotalEarnedRounded;
+            if ($("#itemssold").valid()) {
+                myItem1 = document.getElementById("item1").value;
+                myItem2 = document.getElementById("item2").value;
+                myItem3 = document.getElementById("item3").value;
+                myItem4 = document.getElementById("item4").value;
+                myAmount1 = parseInt(myItem1);
+                myAmount2 = parseInt(myItem2);
+                myAmount3 = parseInt(myItem3);
+                myAmount4 = parseInt(myItem4);
+                myTotal1 = myAmount1 * 239.99;
+                myTotal2 = myAmount2 * 129.75;
+                myTotal3 = myAmount3 * 99.95;
+                myTotal4 = myAmount4 * 350.89;
+                myTotalSold = myTotal1 + myTotal2 + myTotal3 + myTotal4;
+                myTotalEarned = 200 + (.09 * myTotalSold);
+                myTotal1Rounded = myTotal1.toFixed(2);
+                myTotal2Rounded = myTotal2.toFixed(2);
+                myTotal3Rounded = myTotal3.toFixed(2);
+                myTotal4Rounded = myTotal4.toFixed(2);
+                myTotalSoldRounded = myTotalSold.toFixed(2);
+                myTotalEarnedRounded = myTotalEarned.toFixed(2);
+                document.forms["itemssold"].elements["amount1"].value = (myAmount1);
+                document.forms["itemssold"].elements["amount2"].value = (myAmount2);
+                document.forms["itemssold"].elements["amount3"].value = (myAmount3);
+                document.forms["itemssold"].elements["amount4"].value = (myAmount4);
+                document.forms["itemssold"].elements["total1"].value = ("$" + myTotal1Rounded);
+                document.forms["itemssold"].elements["total2"].value = ("$" + myTotal2Rounded);
+                document.forms["itemssold"].elements["total3"].value = ("$" + myTotal3Rounded);
+                document.forms["itemssold"].elements["total4"].value = ("$" + myTotal4Rounded);
+                document.forms["itemssold"].elements["totalearned"].value = ("$" + myTotalEarnedRounded);
+                document.forms["itemssold"].elements["totalsold"].value = ("$" + myTotalSoldRounded);
+            }
+        }
+    </script>
+    <style>
+        label {
+            display: inline-block;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sara's CNIT 133 Site</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HW1</a></li>
+                <li><a href="hw2.html">HW2</a></li>
+                <li class="active"><a style="color:gray;" href="hw3.html">HW3</a></li>
+                <li><a href="hw4.html">HW4</a></li>
+                <li><a href="hw5.html">HW5</a></li>
+                <li><a href="hw6.html">HW6</a></li>
+                <li><a href="hw7.html">HW7</a></li>
+                <li><a href="hw8.html">HW8</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Homework Three: Functions</h2>
+        <nav>
+            <li><a href="hw3p1.html">part one</a></li>
+            <li class="active">part two</li>
+            <li><a href="hw3p3.html">part three</a></li>
+            <li><a href="hw3p4.html">part four</a></li>
+            <li><a href="hw3p5.html">part five</a></li>
+            <li><a href="hw3p6.html">part six</a></li>
+        </nav>
+        <h3>Pay Calculator</h3>
+        <p style="text-align: center;">
+            <label><strong>Salesperson's Name:</strong></label>
+            <input type="text" id="sp" size="20" title="Please make sure that the salesperson's name is spelled correctly."> </p>
+        <form name="itemssold" id="itemssold">
+            <table>
+                <tr>
+                    <td colspan="4">Input the number of items sold for each item number:</td>
+                </tr>
+                <tr>
+                    <td>Item 1:</td>
+                    <td>
+                        <input type="text" id="item1" name="item1" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Item 2:</td>
+                    <td>
+                        <input type="text" id="item2" name="item2" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Item 3:</td>
+                    <td>
+                        <input type="text" id="item3" name="item3" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Item 4:</td>
+                    <td>
+                        <input type="text" id="item4" name="item4" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="reset" value="RESET"> </td>
+                    <td>
+                        <input type="button" onclick="paycalculator()" value="SUBMIT"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" id="errOut"> </td>
+                </tr>
+                <tr>
+                    <th>Item #</th>
+                    <th>Price</th>
+                    <th>Number Sold</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>$239.99</td>
+                    <td>
+                        <input type="text" name="amount1" size="15"> </td>
+                    <td>
+                        <input type="text" name="total1" size="15"> </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$129.75</td>
+                    <td>
+                        <input type="text" name="amount2" size="15"> </td>
+                    <td>
+                        <input type="text" name="total2" size="15"> </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>$99.95</td>
+                    <td>
+                        <input type="text" name="amount3" size="15"> </td>
+                    <td>
+                        <input type="text" name="total3" size="15"> </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>$350.89</td>
+                    <td>
+                        <input type="text" name="amount4" size="15"> </td>
+                    <td>
+                        <input type="text" name="total4" size="15"> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total Amount Sold:</td>
+                    <td>
+                        <input type="text" name="totalsold" size="15"> </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> Total Weekly Earnings:</td>
+                    <td>
+                        <input type="text" name="totalearned" size="15"> </td>
+                </tr>
+            </table>
+        </form>
+        <div id="Retake"></div>
+    </main>
+    <footer>
+        <ul>
+            <li>
+                <script type="text/javascript">
+                    var dateModified = document.lastModified;
+                    mydate = dateModified.slice(0, 16);
+                    document.write("Last updated: " + mydate);
+                </script> |</li>
+            <li>
+                <a href="https://validator.w3.org/nu/?doc=http://hills.ccsf.edu/~sedelste/cnit133/index.html" class="html"> <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 badge" height="15"></a>
+            </li>
+            <li>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" height="15"> </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

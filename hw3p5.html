@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sara's CNIT 133 Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#convertme").validate({
+                // Rules for each input item
+                rules: {
+                    temp: {
+                        required: true
+                        , number: true
+                    }
+                }
+            });
+        });
+
+        function celsius() {
+            var myCelsius, myFahr, myCelsiusRounded;
+            if ($("#convertme").valid()) {
+                myFahr = parseInt(document.getElementById("temp").value);
+                myCelsius = Math.round((5 / 9) * (myFahr - 32));
+                document.forms["convertme"].elements["result"].value = (myFahr + " degrees Fahrenheit is equal to " + myCelsius + " degrees Celsius.");
+            }
+        }
+
+        function fahrenheit() {
+            var myCelsius, myFahr, myFahrRounded;
+            if ($("#convertme").valid()) {
+                myCelsius = parseInt(document.getElementById("temp").value);
+                myFahr = Math.round(((9 / 5) * myCelsius) + 32);
+                document.forms["convertme"].elements["result"].value = (myCelsius + " degrees Celsius is equal to " + myFahr + " degrees Fahrenheit.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Sara's CNIT 133 Site</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HW1</a></li>
+                <li><a href="hw2.html">HW2</a></li>
+                <li class="active"><a style="color:gray;" href="hw3.html">HW3</a></li>
+                <li><a href="hw4.html">HW4</a></li>
+                <li><a href="hw5.html">HW5</a></li>
+                <li><a href="hw6.html">HW6</a></li>
+                <li><a href="hw7.html">HW7</a></li>
+                <li><a href="hw8.html">HW8</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Homework Three: Functions</h2>
+        <nav>
+            <li><a href="hw3p1.html">part one</a></li>
+            <li><a href="hw3p2.html">part two</a></li>
+            <li><a href="hw3p3.html">part three</a></li>
+            <li class="active">part four</li>
+            <li><a href="hw3p5.html">part five</a></li>
+            <li><a href="hw3p6.html">part six</a></li>
+        </nav>
+        <h3>Celsius/Fahrenheit Converter</h3>
+        <form name="convertme" id="convertme">
+            <table>
+                <tr>
+                    <td>Temperature to convert:</td>
+                    <td>
+                        <input type="text" id="temp" name="temp" size="9"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="reset" value="RESET"> </td>
+                    <td>
+                        <input type="button" onclick="fahrenheit()" value="Convert to Fahrenheit"> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" onclick="celsius()" value="Convert to Celsius"> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h2>Results:</h2>
+                        <textarea rows="8" cols="45" name="result" id="result"> </textarea>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </main>
+    <footer>
+        <ul>
+            <li>
+                <script type="text/javascript">
+                    var dateModified = document.lastModified;
+                    mydate = dateModified.slice(0, 16);
+                    document.write("Last updated: " + mydate);
+                </script> |</li>
+            <li>
+                <a href="https://validator.w3.org/nu/?doc=http://hills.ccsf.edu/~sedelste/cnit133/index.html" class="html"> <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 badge" height="15"></a>
+            </li>
+            <li>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" height="15"> </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+                                            body {
+                                                font-family: 'Lato', sans-serif;
+                                            }
+                                            
+                                            main {
+                                                margin-top: 20px;
+                                            }
+                                            
+                                            nav li {
+                                                display: inline;
+                                                color: aqua;
+                                                background-color: black;
+                                                padding: 5px 5px;
+                                                border-radius: 10px;
+                                                border: 2px dotted aqua;
+                                                font-weight: bold;
+                                            }
+                                            
+                                            footer li {
+                                                display: inline;
+                                            }
+                                            
+                                            footer {
+                                                font-size: 12px;
+                                                margin-top: 50px;
+                                                text-align: right
+                                            }
+                                            
+                                            nav a {
+                                                color: aqua;
+                                            }
+                                            
+                                            nav a:hover {
+                                                color: black;
+                                            }
+                                            
+                                            .active {
+                                                color: black;
+                                                background-color: aqua;
+                                                border: 2px dotted black;
+                                            }
+                                            
+                                            nav li:hover {
+                                                background-color: aqua;
+                                                border-color: black;
+                                            }
+                                            
+                                            ul {
+                                                padding-left: 13px;
+                                            }
+                                            
+                                            a {
+                                                text-decoration: none;
+                                                color: black;
+                                            }
+                                            
+                                            td,
+                                            th {
+                                                padding: 5px 10px;
+                                                text-align: left;
+                                            }
+                                            
+                                            th {
+                                                text-decoration: underline;
+                                            }
+                                            
+                                            h1,
+                                            h2,
+                                            h3,
+                                            nav {
+                                                text-align: center;
+                                            }
+                                            
+                                            table {
+                                                margin: auto;
+                                                margin-top: 50px;
+                                            }
+                                            
+                                            h1 {
+                                                margin-top: 0;
+                                            }
+                                            
+                                            h2 {
+                                                font-size: 20px;
+                                                text-transform: uppercase;
+                                            }
+                                            
+                                            h2 {
+                                                background-color: aqua;
+                                            }
+                                            
+                                            header {
+                                                padding: 8px 0;
+                                                background-color: hotpink;
+                                                border-radius: 15px;
+                                            }
+                                            /** HW 2 PAGES **/
+                                            
+                                            .hwlist ul {
+                                                max-width: 300px;
+                                                margin: auto;
+                                                margin-top: 30px;
+                                            }
+                                            /** HW 2 part 2 **/
+                                            
+                                            input {
+                                                text-align: right;
+                                            }
+                                            
+                                            form {
+                                                margin-top: 20px;
+                                            }
+                                            
+                                            table {
+                                                margin-top: 30px;
+                                            }
+                                            /** HW 3 Pt 1 Show/hide styling **/
+                                            
+                                            #panel,
+                                            #flip {
+                                                padding: 5px;
+                                                text-align: center;
+                                                background-color: hotpink;
+                                                border: dotted 1px #c3c3c3;
+                                                width: 250px;
+                                                margin: auto;
+                                            }
+                                            
+                                            #panel {
+                                                padding: 30px;
+                                                display: none;
+                                                width: 200px;
+                                                margin: auto;
+                                                text-align: left;
+                                            }
+                                            
+                                            #errOut {
+                                                margin: auto;
+                                                text-align: center;
+                                                color: red;
+                                            }
+                                            
+                                            .error {
+                                                padding-left: 10px;
+                                                color: red;
+                                            }
+                                            
+                                            #button {
+                                                margin: auto;
+                                                text-align: center;
+                                            }

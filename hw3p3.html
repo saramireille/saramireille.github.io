@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sara's CNIT 133 Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script>
+        $(document).ready(function () {
+            $("#accountinfo").validate({
+                // Rules for each input item
+                rules: {
+                    accountnum: {
+                        required: true
+                        , number: true
+                    }
+                    , start: {
+                        required: true
+                        , number: true
+                        , min: 0
+                    }
+                    , charges: {
+                        required: true
+                        , number: true
+                        , min: 0
+                    }
+                    , credit: {
+                        required: true
+                        , number: true
+                        , min: 0
+                    }
+                    , limit: {
+                        required: true
+                        , number: true
+                        , min: 0
+                    }
+                }
+            });
+        });
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("textarea").css({
+                    "color": "white"
+                    , "background-color": "black"
+                    , "font-weight": "bold"
+                    , "font-size": "15px"
+                });
+            });
+        });
+
+        function creditchecker() {
+            var myAccountNum, myStart, myCharges, myCredit, myLimit, myNewBalance, myNewBalanceRounded, myDifference, myExcess, myResult, myExcessRounded, myAvailableRounded;
+            if ($("#accountinfo").valid()) {
+                myAccountNum = document.getElementById("accountnum").value;
+                myStart = parseFloat(document.getElementById("start").value);
+                myCharges = parseFloat(document.getElementById("charges").value);
+                myCredit = parseFloat(document.getElementById("credit").value);
+                myLimit = parseFloat(document.getElementById("limit").value);
+                myNewBalance = myStart + myCharges - myCredit;
+                myNewBalanceRounded = myNewBalance.toFixed(2);
+                myDifference = myLimit - myNewBalance;
+                myResult = ("Credit Account Summary Account Number: " + myAccountNum + "\nCredit Limit: $" + myLimit + "\nBalance at Beginning of Month: $" + myStart + "\nTotal Amount Charged This Month: $" + myCharges + "\nTotal Amount of Credits This Month: $" + myCredit + "\nSummary: The new balance is: $" + myNewBalanceRounded);
+                if (myDifference < 0) {
+                    myExcess = myDifference * -1;
+                    myExcessRounded = myExcess.toFixed(2);
+                    document.forms["accountinfo"].elements["result"].value = (myResult + "\nCredit limit exceeded by $" + myExcessRounded);
+                }
+                else {
+                    myAvailable = myDifference;
+                    myAvailableRounded = myDifference.toFixed(2);
+                    document.forms["accountinfo"].elements["result"].value = (myResult + "\nCredit available is $" + myAvailableRounded);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Sara's CNIT 133 Site</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HW1</a></li>
+                <li><a href="hw2.html">HW2</a></li>
+                <li class="active"><a style="color:gray;" href="hw3.html">HW3</a></li>
+                <li><a href="hw4.html">HW4</a></li>
+                <li><a href="hw5.html">HW5</a></li>
+                <li><a href="hw6.html">HW6</a></li>
+                <li><a href="hw7.html">HW7</a></li>
+                <li><a href="hw8.html">HW8</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Homework Three: Functions</h2>
+        <nav>
+            <li><a href="hw3p1.html">part one</a></li>
+            <li><a href="hw3p2.html">part two</a></li>
+            <li class="active">part three</li>
+            <li><a href="hw3p4.html">part four</a></li>
+            <li><a href="hw3p5.html">part five</a></li>
+            <li><a href="hw3p6.html">part six</a></li>
+        </nav>
+        <h3>Account Information</h3>
+        <form name="accountinfo" id="accountinfo">
+            <table>
+                <tr>
+                    <td colspan="4">Input the number of items sold for each item number:</td>
+                </tr>
+                <tr>
+                    <td>Account Number:</td>
+                    <td>
+                        <input type="text" id="accountnum" name="accountnum" size="9"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Start-of-Month Balance:</td>
+                    <td> $
+                        <input type="text" id="start" name="start" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Total Charges this Month:</td>
+                    <td> $
+                        <input type="text" id="charges" name="charges" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Total Credits this Month:</td>
+                    <td> $
+                        <input type="text" id="credit" name="credit" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Allowed Credit Limit:</td>
+                    <td> $
+                        <input type="text" id="limit" name="limit" size="6"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="reset" value="RESET"> </td>
+                    <td>
+                        <input type="button" onclick="creditchecker()" value="SUBMIT"> </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h2>Results:</h2>
+                        <textarea rows="8" cols="45" name="result" id="result"> </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" id="button"> Click to Change Text Area Display</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </main>
+    <footer>
+        <ul>
+            <li>
+                <script type="text/javascript">
+                    var dateModified = document.lastModified;
+                    mydate = dateModified.slice(0, 16);
+                    document.write("Last updated: " + mydate);
+                </script> |</li>
+            <li>
+                <a href="https://validator.w3.org/nu/?doc=http://hills.ccsf.edu/~sedelste/cnit133/index.html" class="html"> <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 badge" height="15"></a>
+            </li>
+            <li>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" height="15"> </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>
