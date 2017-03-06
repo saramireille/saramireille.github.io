@@ -13,6 +13,18 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script>
+        $(document).ready(function () {
+            $("#multiply").validate({
+                // Rules for each input item
+                rules: {
+                    response: {
+                        required: true
+                        , number: true
+                    }
+                }
+            });
+        });
+
         function start() {
             myNum1 = Math.floor(Math.random() * 9);
             myNum2 = Math.floor(Math.random() * 9);
@@ -25,20 +37,22 @@
             myAnswer = myNum1 * myNum2;
             myResponse = parseInt(document.getElementById("response").value);
             document.getElementById("result").innerHTML = ("");
-            if (myResponse == myAnswer) {
-                document.getElementById("result").innerHTML = ("");
-                document.getElementById("multiply").reset();
-                var r = confirm("Very good! " + myNum1 + " x " + myNum2 + " = " + myAnswer + ".  Would you like to try another problem ?");
-                if (r == true) {
-                    start();
+            if ($("#multiply").valid()) {
+                if (myResponse == myAnswer) {
+                    document.getElementById("result").innerHTML = ("");
+                    document.getElementById("multiply").reset();
+                    var r = confirm("Very good! " + myNum1 + " x " + myNum2 + " = " + myAnswer + ".  Would you like to try another problem ?");
+                    if (r == true) {
+                        start();
+                    }
+                    else {
+                        document.getElementById("result").innerHTML = ("Thanks for visiting the site. Please come back soon.");;
+                    }
                 }
                 else {
-                    document.getElementById("result").innerHTML = ("Thanks for visiting the site. Please come back soon.");;
+                    alert("Sorry! " + myNum1 + " x " + myNum2 + " does not equal " + myResponse + ". Please try again.");
+                    document.getElementById("multiply").reset();
                 }
-            }
-            else {
-                alert("Sorry! " + myNum1 + " x " + myNum2 + " does not equal " + myResponse + ". Please try again.");
-                document.getElementById("multiply").reset();
             }
         }
 
